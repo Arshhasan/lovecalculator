@@ -1,7 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http show post;
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   final int? creatorId;
@@ -19,8 +18,7 @@ class _HomePageState extends State<HomePage> {
   void _submit() async {
     final yourName = yourNameController.text.trim();
     final crushName = crushNameController.text.trim();
-    final creatorId =
-        widget.creatorId; // ✅ Get creatorId passed via constructor
+    final creatorId = widget.creatorId;
 
     if (yourName.isEmpty || crushName.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -36,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
-    final url = Uri.parse('http://localhost:3000/api/entry/submit');
+    final url = Uri.parse('https://lovecalculator-mu.vercel.app/api/entry/submit');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
@@ -54,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         arguments: {
           'yourName': yourName,
           'crushName': crushName,
-          'creatorName': 'Your Friend', // Optional, update later if needed
+          'creatorName': 'Your Friend', // Optional
         },
       );
     } else {

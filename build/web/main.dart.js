@@ -73671,7 +73671,7 @@ if(j.length===0||i.length===0){p.c.ai(t.Pu).f.pz(B.Kq)
 s=1
 break}if(h==null){p.c.ai(t.Pu).f.pz(B.Kp)
 s=1
-break}o=A.fk("http://localhost:3000/api/entry/submit")
+break}o=A.fk("https://lovecalculator-mu.vercel.app/api/entry/submit")
 n=t.N
 m=A.ae(["Content-Type","application/json"],n,n)
 s=3
