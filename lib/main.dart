@@ -5,7 +5,10 @@ import 'pages/creator_page.dart';
 
 void main() {
   final uri = Uri.base; // Get full URL
+  print('Full URL: $uri'); // Add this for debugging
+
   final creatorId = int.tryParse(uri.queryParameters['creator_id'] ?? '');
+  print('Parsed creatorId: $creatorId'); // Add this
 
   runApp(MyApp(creatorId: creatorId));
 }
