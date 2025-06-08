@@ -70850,7 +70850,7 @@ if(j.length===0||i.length===0){p.c.ag(t.Pu).f.p9(B.K2)
 s=1
 break}if(h==null){p.c.ag(t.Pu).f.p9(B.K1)
 s=1
-break}o=A.f6("https://lovecalculator-mu.vercel.app/api/entry/submit")
+break}o=A.f6("https://astonishing-kindness.up.railway.app/api/entry/submit")
 n=t.N
 m=A.ad(["Content-Type","application/json"],n,n)
 s=3

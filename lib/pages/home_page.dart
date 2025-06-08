@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       return;
     }
 
-    final url = Uri.parse('https://lovecalculator-mu.vercel.app/api/entry/submit');
+    final url = Uri.parse('https://astonishing-kindness.up.railway.app/api/entry/submit');
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
