@@ -70854,7 +70854,7 @@ break}o=A.f6("https://astonishing-kindness.up.railway.app/api/entry/submit")
 n=t.N
 m=A.ad(["Content-Type","application/json"],n,n)
 s=3
-return A.T(A.api(o,B.bv.CL(A.ad(["yourName",j,"crushName",i,"creatorId",h],n,t.K),null),m),$async$uM)
+return A.T(A.api(o,B.bv.CL(A.ad(["your_name",j,"crush_name",i,"creator_id",h],n,t.K),null),m),$async$uM)
 case 3:l=b
 m=l.b
 k=p.c
