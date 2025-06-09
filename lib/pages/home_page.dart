@@ -33,34 +33,47 @@ class _HomePageState extends State<HomePage> {
       );
       return;
     }
+
     final url = Uri.parse(
       'https://backend-production-9731.up.railway.app/api/entry/submit',
     );
 
-    final response = await http.post(
-      url,
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
-        'your_name': yourName,
-        'crush_name': crushName,
-        'creator_id': creatorId,
-      }),
-    );
+    try {
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          'your_name': yourName,
+          'crush_name': crushName,
+          'creator_id': creatorId,
+        }),
+      );
 
-    if (response.statusCode == 201) {
-      Navigator.pushNamed(
+      print('Status code: ${response.statusCode}');
+      print('Response body: ${response.body}');
+
+      if (response.statusCode == 201) {
+        Navigator.pushNamed(
+          context,
+          '/result',
+          arguments: {
+            'yourName': yourName,
+            'crushName': crushName,
+            'creatorName': 'Your Friend',
+          },
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error: ${jsonDecode(response.body)['error']}'),
+          ),
+        );
+      }
+    } catch (e) {
+      print('HTTP error: $e');
+      ScaffoldMessenger.of(
         context,
-        '/result',
-        arguments: {
-          'yourName': yourName,
-          'crushName': crushName,
-          'creatorName': 'Your Friend', // Optional
-        },
-      );
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: ${jsonDecode(response.body)['error']}')),
-      );
+      ).showSnackBar(SnackBar(content: Text('Network or CORS Error: $e')));
     }
   }
 
